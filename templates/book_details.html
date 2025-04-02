@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Book Found!
+{% endblock title %}
+{% block body %}
+<main>
+	<div>
+		{% for book in book %}
+			{{book.book_name}}
+			{{book.author_name}}
+			<ul>
+				{% for genre in book.genre  %}
+					<li>{{genre}}</li>
+				{% endfor %}
+			</ul>
+			<p>Reviews:</p>
+			<ul>
+				{% for review in book.reviews %}
+					<li>
+						<strong>{{ review.name }}</strong> - Rating: {{ review.rating }}<br>
+						"{{ review.review }}"
+					</li>
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</div>
+</main>
+{% endblock body %}

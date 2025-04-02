@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	View Book Reviews
+{% endblock title %}
+{% block body %}
+<main>
+	<div>
+		<h2>searching for a Particular book</h2> 
+		<form action="/read" method="GET">
+			<input type="text" name="search" id="search" placeholder="Search" required>
+			<button type="submit">search</button>
+		</form>
+	</div>
+	<div>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Book Name</th>
+					<th>Author</th>
+					<th>Genres</th>
+					<th>Reviews</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for book in books %}
+				<tr>
+					<td>{{ book.book_name }}</td>
+					<td>{{ book.author_name }}</td>
+					<td>
+						<ul>
+							{% for genre in book.genre %}
+								<li>{{ genre }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+					<td>
+						<ul>
+							{% for review in book.reviews %}
+								<li>
+									<strong>{{ review.name }}</strong> - Rating: {{ review.rating }}<br>
+									"{{ review.review }}"
+								</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>		
+</main>
+{% endblock body %}
