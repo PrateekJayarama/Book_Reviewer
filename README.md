@@ -13,7 +13,7 @@ The **Book Review System** is a **Flask-based web application** that allows user
 ## Technologies Used
 - **Backend**: Flask (Python 3.12)
 - **Database**: MongoDB (PyMongo)
-- **Frontend**: HTML5, CSS, Jinja2
+- **Frontend**: HTML5, Jinja2
 
 ## Installation & Setup
 1. Clone the repository:
